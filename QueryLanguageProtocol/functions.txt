@@ -1,0 +1,13 @@
+com.qlp.functions.predef.Addition
+com.qlp.functions.predef.Subtraction
+com.qlp.functions.predef.Multiplication
+com.qlp.functions.predef.Division
+com.qlp.functions.predef.Modulation
+com.qlp.functions.predef.Powers
+com.qlp.functions.predef.Constants
+com.qlp.functions.predef.trig.Sine
+com.qlp.functions.predef.trig.Cosine
+com.qlp.functions.predef.trig.Tangent
+com.qlp.functions.predef.trig.Arcsine
+com.qlp.functions.predef.trig.Arccosine
+com.qlp.functions.predef.trig.Arctangent

@@ -17,7 +17,11 @@ public class Constants extends Function<Number> {
 	}
 
 	public QueryResponse<Number> compute(Map<String, Object> params) {
-		return new QueryResponse<Number>(constants.get(((String) params.get(0)).toLowerCase()));
+		return new QueryResponse<Number>(constants.get(((String) params.get("param1")).toLowerCase()));
+	}
+	
+	public int getParameterCount() {
+		return 1;
 	}
 	
 	public String toString() {
