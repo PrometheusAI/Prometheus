@@ -57,12 +57,4 @@ public abstract class Function<T> {
 		}
 	}
 
-	public static void main(String[] args) throws Exception {
-		registerFunction(Class.forName("com.qlp.functions.predef.Addition"));
-		registerFunction(Class.forName("com.qlp.functions.predef.Subtraction"));
-		registerFunction(Class.forName("com.qlp.functions.predef.Multiplication"));
-		registerFunction(Class.forName("com.qlp.functions.predef.Division"));
-		System.out.println(functions);
-	}
-
 }

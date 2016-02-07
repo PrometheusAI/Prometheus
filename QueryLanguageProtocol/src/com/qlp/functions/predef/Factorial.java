@@ -5,22 +5,26 @@ import java.util.Map;
 import com.qlp.QueryResponse;
 import com.qlp.functions.Function;
 
-public class Division extends Function<Number> {
+public class Factorial extends Function<Number> {
 
 	public String getName() {
-		return "div";
+		return "fact";
 	}
 
 	public QueryResponse<Number> compute(Map<String, Object> params) {
-		return new QueryResponse<Number>((double) params.get("param1") / (double) params.get("param2"));
+		double iterations = (double) params.get("param1");
+		long result = 1;
+		for (int i = 1; i <= iterations; i++)
+			result *= i;
+		return new QueryResponse<>(result);
 	}
-	
+
 	public int getParameterCount() {
-		return 2;
+		return 1;
 	}
 
 	public String toString() {
-		return "div(param1,param2)";
+		return "fact(param1)";
 	}
 	
 }

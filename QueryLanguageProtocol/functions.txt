@@ -11,3 +11,4 @@ com.qlp.functions.predef.trig.Tangent
 com.qlp.functions.predef.trig.Arcsine
 com.qlp.functions.predef.trig.Arccosine
 com.qlp.functions.predef.trig.Arctangent
+com.qlp.functions.predef.Factorial

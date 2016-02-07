@@ -20,9 +20,9 @@ public class Driver {
 
 		reader.close();
 
-		String function = "pow(144,0.5)";
+		String function = "add(20, 28)";
 
-		System.out.println(MathHandler.computeIndividualFunction(function));
+		System.out.println(MathHandler.computeAllFunctions(function));
 
 	}
 

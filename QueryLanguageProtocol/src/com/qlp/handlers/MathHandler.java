@@ -10,24 +10,8 @@ import com.qlp.functions.Function;
 public class MathHandler implements QueryHandler {
 
 	public QueryResponse<String> query(String query) {
-		StringBuilder queryMod = new StringBuilder(query.substring(5));
-		char current;
-
-		StringBuilder func = new StringBuilder();
-		Function<?> aFunc;
-		Object[] params = new Object[0];
-
-		while (queryMod.length() > 0) {
-			current = queryMod.charAt(0);
-
-			if (Character.isLetter(current))
-				func.append(current);
-			else if (current == '(')
-				aFunc = Function.getFunction(func.toString());
-			queryMod.deleteCharAt(0);
-		}
-
-		return new QueryResponse<>(query);
+		// Interpret user input
+		return null;
 	}
 
 	public QueryResponse<?> computeFunction(String function) {
@@ -57,16 +41,30 @@ public class MathHandler implements QueryHandler {
 
 	}
 
-	// public QueryResponse<Number> computeFunction(String function, int a) {
-	// StringBuilder strBuild = new StringBuilder(function);
-	// int index = function.lastIndexOf("(");
-	// int foo = 0, temp;
-	// while (foo != index) {
-	// if (strBuild.indexOf("(") == strBuild.lastIndexOf("("))
-	// }
-	// }
+	public static Number computeAllFunctions(String function) {
+		double value = 0;
+		for (; function.contains("(");) {
+			value = computeIndividualFunction(
+					getFunction(function, function.lastIndexOf("("), function.indexOf(")", function.lastIndexOf("("))))
+							.doubleValue();
+			function = function.replace(
+					getFunction(function, function.lastIndexOf("("), function.indexOf(")", function.lastIndexOf("("))),
+					Double.toString(value));
+		}
+		return value;
+	}
 
-	// add(20,28)
+	static String getFunction(String function, int start, int finish) {
+		char[] arr = function.toCharArray();
+		for (int i = start - 1; true; i--) {
+			if (i == 0)
+				return function;
+			if (arr[i] == '(' || arr[i] == ',') {
+				return function.substring(i + 1, finish + 1);
+			}
+		}
+	}
+
 	public static Number computeIndividualFunction(String function) {
 		StringBuilder func = new StringBuilder();
 		StringBuilder temp = new StringBuilder();
