@@ -7,9 +7,6 @@ import com.qlp.QueryResponse;
 
 public abstract class Function<T> {
 
-	public Function() {
-	}
-
 	private static final Map<String, Function<?>> functions = new HashMap<>();
 
 	public abstract String getName();

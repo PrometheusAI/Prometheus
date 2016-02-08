@@ -21,7 +21,7 @@ public class Driver {
 
 		reader.close();
 		
-		String[] functions = new String[] { "div(pow(6,3),mult(2,2))" };
+		String[] functions = new String[] { "sin(90,d)" };
 
 		for (String str : functions)
 			System.out.println(NumberFormat.getNumberInstance().format(MathHandler.computeAllFunctions(str)));

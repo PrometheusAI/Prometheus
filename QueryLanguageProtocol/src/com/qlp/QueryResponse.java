@@ -11,9 +11,5 @@ public final class QueryResponse<T> {
 	public T getResponse() {
 		return response;
 	}
-	
-	public T asParameter() {
-		return response;
-	}
 
 }
