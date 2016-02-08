@@ -12,3 +12,5 @@ com.qlp.functions.predef.trig.Arcsine
 com.qlp.functions.predef.trig.Arccosine
 com.qlp.functions.predef.trig.Arctangent
 com.qlp.functions.predef.Factorial
+com.qlp.functions.predef.VariableDefinition
+com.qlp.functions.predef.VariableRetrieval
