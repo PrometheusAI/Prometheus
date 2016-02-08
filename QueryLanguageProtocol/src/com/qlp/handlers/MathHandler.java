@@ -43,7 +43,7 @@ public class MathHandler implements QueryHandler {
 
 	public static Number computeAllFunctions(String function) {
 		double value = 0;
-		for (; function.contains("(");) {
+		while (function.contains(")")) {
 			value = computeIndividualFunction(
 					getFunction(function, function.lastIndexOf("("), function.indexOf(")", function.lastIndexOf("("))))
 							.doubleValue();
@@ -66,8 +66,7 @@ public class MathHandler implements QueryHandler {
 	}
 
 	public static Number computeIndividualFunction(String function) {
-		StringBuilder func = new StringBuilder();
-		StringBuilder temp = new StringBuilder();
+		StringBuilder func = new StringBuilder(), temp = new StringBuilder();
 		Function<?> aFunc = null;
 		String[] paramNames = null;
 		Object[] parameters = null;

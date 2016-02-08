@@ -10,7 +10,7 @@ import com.qlp.handlers.MathHandler;
 public class Driver {
 
 	public static void main(String[] args) throws Exception {
-		File functionFile = new File(System.getProperty("user.dir") + "\\functions.txt");
+		File functionFile = new File(System.getProperty("user.dir") + File.separator + "functions.txt");
 		Scanner reader = new Scanner(functionFile);
 		String line;
 		while (reader.hasNext()) {
@@ -20,8 +20,8 @@ public class Driver {
 		}
 
 		reader.close();
-
-		String[] functions = new String[] { "add(20,28)", "vardef(var,6)", "pow(var(var),2)" };
+		
+		String[] functions = new String[] { "div(pow(6,3),4)" };
 
 		for (String str : functions)
 			System.out.println(NumberFormat.getNumberInstance().format(MathHandler.computeAllFunctions(str)));
@@ -29,5 +29,3 @@ public class Driver {
 	}
 
 }
-
-// What is 4 plus five?
