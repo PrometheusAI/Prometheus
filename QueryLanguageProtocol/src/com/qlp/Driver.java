@@ -15,13 +15,13 @@ public class Driver {
 		String line;
 		while (reader.hasNext()) {
 			line = reader.nextLine();
-			System.out.println("Function registered: " + line);
+//			System.out.println("Function registered: " + line);
 			Function.registerFunction(Class.forName(line));
 		}
 
 		reader.close();
 		
-		String[] functions = new String[] { "div(pow(6,3),4)" };
+		String[] functions = new String[] { "div(pow(6,3),mult(2,2))" };
 
 		for (String str : functions)
 			System.out.println(NumberFormat.getNumberInstance().format(MathHandler.computeAllFunctions(str)));
