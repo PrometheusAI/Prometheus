@@ -23,4 +23,8 @@ public class VariableRetrieval extends Function<Object> {
 		return "var(name)";
 	}
 
+	public String getKeyword() {
+		return "";
+	}
+
 }

@@ -28,4 +28,8 @@ public class Tangent extends Function<Number> {
 		return "tan(param1,mode)";
 	}
 	
+	public String getKeyword() {
+		return "tangent";
+	}
+	
 }

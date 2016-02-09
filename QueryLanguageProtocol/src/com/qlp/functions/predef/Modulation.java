@@ -14,13 +14,17 @@ public class Modulation extends Function<Number> {
 	public QueryResponse<Number> compute(Map<String, Object> params) {
 		return new QueryResponse<>((double) params.get("param1") % (double) params.get("param2"));
 	}
-	
+
 	public int getParameterCount() {
 		return 2;
 	}
 
 	public String toString() {
 		return "mod(param1,param2)";
+	}
+
+	public String getKeyword() {
+		return "remainder";
 	}
 
 }

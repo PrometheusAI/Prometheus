@@ -5,26 +5,27 @@ import java.util.Map;
 import com.qlp.QueryResponse;
 import com.qlp.functions.Function;
 
-public class Multiplication extends Function<Number> {
+public class Logarithm extends Function<Number> {
 
 	public String getName() {
-		return "mult";
+		return "log";
 	}
 
 	public QueryResponse<Number> compute(Map<String, Object> params) {
-		return new QueryResponse<Number>((double) params.get("param1") * (double) params.get("param2"));
+		return new QueryResponse<Number>(
+				Math.log10((double) params.get("param1")) / Math.log10((double) params.get("base")));
 	}
-	
+
 	public int getParameterCount() {
 		return 2;
 	}
-	
-	public String toString() {
-		return "mult(param1,param2)";
-	}
-	
+
 	public String getKeyword() {
-		return "times";
+		return "log";
+	}
+
+	public String toString() {
+		return "log(base,param1)";
 	}
 
 }

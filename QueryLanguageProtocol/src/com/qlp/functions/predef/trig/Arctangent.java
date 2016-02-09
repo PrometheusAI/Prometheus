@@ -28,4 +28,8 @@ public class Arctangent extends Function<Number> {
 		return "arctan(param1,mode)";
 	}
 	
+	public String getKeyword() {
+		return "arctangent";
+	}
+	
 }

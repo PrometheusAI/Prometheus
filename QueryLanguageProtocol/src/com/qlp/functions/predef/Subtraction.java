@@ -23,4 +23,8 @@ public class Subtraction extends Function<Number> {
 		return "sub(param1,param2)";
 	}
 	
+	public String getKeyword() {
+		return "minus";
+	}
+	
 }

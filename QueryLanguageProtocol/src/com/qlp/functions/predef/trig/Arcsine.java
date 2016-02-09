@@ -27,5 +27,9 @@ public class Arcsine extends Function<Number> {
 	public String toString() {
 		return "arcsin(param1,mode)";
 	}
+	
+	public String getKeyword() {
+		return "arcsine";
+	}
 
 }

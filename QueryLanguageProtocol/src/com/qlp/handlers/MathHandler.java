@@ -40,10 +40,10 @@ public class MathHandler implements QueryHandler {
 		return func.compute(parameters);
 
 	}
-
+	
 	public static Number computeAllFunctions(String function) {
 		double value = 0;
-		while (function.contains(")")) {
+		while (function.contains("(")) {
 			value = computeIndividualFunction(
 					getFunction(function, function.lastIndexOf("("), function.indexOf(")", function.lastIndexOf("("))))
 							.doubleValue();
@@ -56,7 +56,7 @@ public class MathHandler implements QueryHandler {
 
 	static String getFunction(String function, int start, int finish) {
 		char[] arr = function.toCharArray();
-		for (int i = start - 1; true; i--) {
+		for (int i = start - 1; true; i--) { // "func2(func3(),stringOfCharacters(param1,param2,...),2)"
 			if (i == 0)
 				return function;
 			if (arr[i] == '(' || arr[i] == ',') {

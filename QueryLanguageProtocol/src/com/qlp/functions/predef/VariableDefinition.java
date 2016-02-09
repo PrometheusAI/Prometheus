@@ -37,5 +37,9 @@ public class VariableDefinition extends Function<Object> {
 	public String toString() {
 		return "vardef(name,value)";
 	}
+	
+	public String getKeyword() {
+		return "";
+	}
 
 }

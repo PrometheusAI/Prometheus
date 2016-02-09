@@ -28,6 +28,10 @@ public class Constants extends Function<Number> {
 		return "const(param1)";
 	}
 	
+	public String getKeyword() {
+		return "";
+	}
+	
 	static {
 		// pi
 		constants.put("pi", 3.14159265358979);

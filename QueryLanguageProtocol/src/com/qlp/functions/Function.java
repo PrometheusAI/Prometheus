@@ -14,6 +14,8 @@ public abstract class Function<T> {
 	public abstract QueryResponse<T> compute(Map<String, Object> params);
 
 	public abstract int getParameterCount();
+	
+	public abstract String getKeyword();
 
 	public abstract String toString();
 

@@ -18,15 +18,15 @@ public class Factors extends Function<Integer[]> {
 		List<Integer> factors = new ArrayList<>();
 		factors.add(1);
 		int num = (int) params.get("param1");
-		
+
 		for (int i = 1; i < num; i++) {
 			if (num % i == 0)
 				factors.add(i);
 		}
-		
+
 		Integer[] arr = factors.toArray(new Integer[factors.size()]);
 		Arrays.sort(arr);
-		
+
 		return new QueryResponse<>(arr);
 	}
 
@@ -36,6 +36,10 @@ public class Factors extends Function<Integer[]> {
 
 	public String toString() {
 		return "factor(param1)";
+	}
+
+	public String getKeyword() {
+		return "factors";
 	}
 
 }

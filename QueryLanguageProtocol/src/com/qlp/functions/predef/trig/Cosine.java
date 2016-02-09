@@ -27,5 +27,9 @@ public class Cosine extends Function<Number> {
 	public String toString() {
 		return "cos(param1,mode)";
 	}
+	
+	public String getKeyword() {
+		return "cosine";
+	}
 
 }

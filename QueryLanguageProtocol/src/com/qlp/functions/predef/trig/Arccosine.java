@@ -28,4 +28,8 @@ public class Arccosine extends Function<Number> {
 		return "arccos(param1,mode)";
 	}
 	
+	public String getKeyword() {
+		return "arccosine";
+	}
+	
 }

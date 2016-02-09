@@ -14,3 +14,6 @@ com.qlp.functions.predef.trig.Arctangent
 com.qlp.functions.predef.Factorial
 com.qlp.functions.predef.VariableDefinition
 com.qlp.functions.predef.VariableRetrieval
+com.qlp.functions.predef.Factors
+com.qlp.functions.predef.Logarithm
+com.qlp.functions.predef.NaturalLogarithm

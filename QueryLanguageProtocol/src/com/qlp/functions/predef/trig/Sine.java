@@ -28,5 +28,9 @@ public class Sine extends Function<Number> {
 	public String toString() {
 		return "sin(param1,mode)";
 	}
+	
+	public String getKeyword() {
+		return "sine";
+	}
 
 }

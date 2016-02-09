@@ -6,6 +6,12 @@ import com.qlp.QueryResponse;
 import com.qlp.functions.Function;
 
 public class Powers extends Function<Number> {
+	
+//	private static final ImmutableMap<String, Integer> powers;
+	
+	public Powers() {
+//		powers = (ImmutableMap<String, Integer>) ImmutableMap.builder().build();
+	}
 
 	public String getName() {
 		return "pow";
@@ -20,9 +26,12 @@ public class Powers extends Function<Number> {
 		return 2;
 	}
 
-	@Override
 	public String toString() {
 		return "pow(param1,param2)";
 	}
 
+	public String getKeyword() {
+		return "power";
+	}
+	
 }

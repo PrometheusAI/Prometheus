@@ -27,4 +27,8 @@ public class Factorial extends Function<Number> {
 		return "fact(param1)";
 	}
 	
+	public String getKeyword() {
+		return "factorial";
+	}
+	
 }
