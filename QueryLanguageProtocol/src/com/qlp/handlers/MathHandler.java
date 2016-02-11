@@ -11,6 +11,8 @@ public class MathHandler implements QueryHandler {
 
 	public QueryResponse<String> query(String query) {
 		// Interpret user input
+		String function = "";
+		
 		return null;
 	}
 

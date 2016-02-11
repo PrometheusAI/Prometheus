@@ -1,16 +1,25 @@
 package com.qlp.functions.predef;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 
+import com.google.common.collect.ImmutableMap;
 import com.qlp.QueryResponse;
 import com.qlp.functions.Function;
 
 public class Powers extends Function<Number> {
 	
-//	private static final ImmutableMap<String, Integer> powers;
+	private final ImmutableMap<Integer, String> powers;
 	
 	public Powers() {
-//		powers = (ImmutableMap<String, Integer>) ImmutableMap.builder().build();
+		LinkedHashMap<Integer, String> pows = new LinkedHashMap<>();
+
+		pows.put(1, "first");
+		pows.put(2, "square");
+		pows.put(3, "cube");
+		
+		
+		powers = ImmutableMap.copyOf(pows);
 	}
 
 	public String getName() {
@@ -32,6 +41,16 @@ public class Powers extends Function<Number> {
 
 	public String getKeyword() {
 		return "power";
+	}
+	
+	public String getNameOfPower(int power) {
+		if (power == 1)
+			return "";
+		return powers.get(power) + "d";
+	}
+	
+	public String getNameOfRoot(int power) {
+		return powers.get(power) + " root";
 	}
 	
 }
