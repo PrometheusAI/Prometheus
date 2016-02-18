@@ -13,6 +13,8 @@ public class Query {
 			if (c != ':')
 				str.append(c);
 		
+		// [handler]:[query]
+		
 		return handlers.get(str.toString()).query(query);
 	}
 	

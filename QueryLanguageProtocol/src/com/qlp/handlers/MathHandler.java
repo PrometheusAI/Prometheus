@@ -13,6 +13,13 @@ public class MathHandler implements QueryHandler {
 		// Interpret user input
 		String function = "";
 		
+		/**
+		 * six cubed divided by 4
+		 * 
+		 * div(pow(6,3),4)
+		 * 
+		 */
+		
 		return null;
 	}
 
