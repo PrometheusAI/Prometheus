@@ -5,6 +5,13 @@ import java.util.Map;
 import com.qlp.QueryResponse;
 import com.qlp.functions.Function;
 
+/**
+ * Finds the tangent inverse of a number (commonly denoted as tan<sup>-1</sup>)
+ * 
+ * @author Tyler Senter
+ * @version 1.0
+ * @since 1.0
+ */
 public class Arctangent extends Function<Number> {
 
 	public String getName() {

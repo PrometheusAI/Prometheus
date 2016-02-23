@@ -5,6 +5,13 @@ import java.util.Map;
 import com.qlp.QueryResponse;
 import com.qlp.functions.Function;
 
+/**
+ * Finds the sine of a number (commonly denoted as sin)
+ * 
+ * @author Tyler Senter
+ * @version 1.0
+ * @since 1.0
+ */
 public class Sine extends Function<Number> {
 
 	public String getName() {

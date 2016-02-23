@@ -5,6 +5,13 @@ import java.util.Map;
 import com.qlp.QueryResponse;
 import com.qlp.functions.Function;
 
+/**
+ * Finds the sum of two numbers
+ * 
+ * @author Tyler Senter
+ * @version 1.0
+ * @since 1.0
+ */
 public class Addition extends Function<Number> {
 
 	public String getName() {

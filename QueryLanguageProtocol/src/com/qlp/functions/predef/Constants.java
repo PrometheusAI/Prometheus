@@ -6,6 +6,13 @@ import java.util.Map;
 import com.qlp.QueryResponse;
 import com.qlp.functions.Function;
 
+/**
+ * Retrieves a constant value (pi, <em>e</em>, and the golden ratio)
+ * 
+ * @author Tyler Senter
+ * @version 1.0
+ * @since 1.0
+ */
 public class Constants extends Function<Number> {
 	
 	private static final Map<String, Double> constants = new HashMap<String, Double>();

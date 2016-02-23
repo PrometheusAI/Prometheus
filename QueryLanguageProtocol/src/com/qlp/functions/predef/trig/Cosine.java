@@ -5,6 +5,13 @@ import java.util.Map;
 import com.qlp.QueryResponse;
 import com.qlp.functions.Function;
 
+/**
+ * Finds the cosine of a number (commonly denoted as cos)
+ * 
+ * @author Tyler Senter
+ * @version 1.0
+ * @since 1.0
+ */
 public class Cosine extends Function<Number> {
 	
 	public String getName() {

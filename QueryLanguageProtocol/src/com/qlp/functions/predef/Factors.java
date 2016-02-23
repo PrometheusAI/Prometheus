@@ -8,6 +8,13 @@ import java.util.Map;
 import com.qlp.QueryResponse;
 import com.qlp.functions.Function;
 
+/**
+ * Determines the factors of an integer
+ * 
+ * @author Tyler Senter
+ * @version 1.0
+ * @since 1.0
+ */
 public class Factors extends Function<Integer[]> {
 
 	public String getName() {

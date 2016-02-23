@@ -5,6 +5,13 @@ import java.util.Map;
 import com.qlp.QueryResponse;
 import com.qlp.functions.Function;
 
+/**
+ * Retrieves the value of a variable
+ * 
+ * @author Tyler Senter
+ * @version 1.0
+ * @since 1.0
+ */
 public class VariableRetrieval extends Function<Object> {
 
 	public String getName() {

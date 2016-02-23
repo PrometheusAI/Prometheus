@@ -6,32 +6,33 @@ import com.qlp.QueryResponse;
 import com.qlp.functions.Function;
 
 /**
- * Finds the product of two numbers
+ * Determines whether or not a variable is defined
  * 
  * @author Tyler Senter
  * @version 1.0
  * @since 1.0
  */
-public class Multiplication extends Function<Number> {
+public class VariableDefined extends Function<Number> {
 
 	public String getName() {
-		return "mult";
+		return "isdef";
 	}
 
 	public QueryResponse<Number> compute(Map<String, Object> params) {
-		return new QueryResponse<Number>((double) params.get("param1") * (double) params.get("param2"));
+		return new QueryResponse<Number>(
+				((VariableDefinition) Function.getFunction("vardef")).vars.containsKey(params.get("name")) ? 1 : 0);
 	}
-	
+
 	public int getParameterCount() {
-		return 2;
+		return 1;
 	}
-	
-	public String toString() {
-		return "mult(param1,param2)";
-	}
-	
+
 	public String getKeyword() {
-		return "times";
+		return "";
+	}
+
+	public String toString() {
+		return "isdef(name)";
 	}
 
 }

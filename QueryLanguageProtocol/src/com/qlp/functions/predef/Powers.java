@@ -7,6 +7,13 @@ import com.google.common.collect.ImmutableMap;
 import com.qlp.QueryResponse;
 import com.qlp.functions.Function;
 
+/**
+ * Raises one number to a power
+ * 
+ * @author Tyler Senter
+ * @version 1.0
+ * @since 1.0
+ */
 public class Powers extends Function<Number> {
 	
 	private final ImmutableMap<Integer, String> powers;
