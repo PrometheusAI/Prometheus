@@ -1,6 +1,6 @@
 package com.tylersenter.prometheus.launcher;
 
-import com.tylersenter.prometheus.launcher.DebugConsole.Priority;
+import com.tylersenter.prometheus.launcher.Console.Priority;
 import com.tylersenter.prometheus.launcher.objects.ObjectWrapper;
 
 import javafx.application.Application;
@@ -8,10 +8,10 @@ import javafx.stage.Stage;
 
 public class LauncherMain extends Application {
 
-	private static final ObjectWrapper<DebugConsole> console = new ObjectWrapper<>();
+	private static final ObjectWrapper<Console> console = new ObjectWrapper<>();
 
 	public void start(Stage stage) {
-		console.setObject(new DebugConsole());
+		console.setObject(new Console());
 		console.getObject().show(true);
 	}
 

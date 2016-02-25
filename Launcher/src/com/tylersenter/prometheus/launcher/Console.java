@@ -6,8 +6,6 @@ import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.tylersenter.prometheus.launcher.objects.ObjectUtils;
-
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
@@ -31,9 +29,9 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class DebugConsole {
+public class Console {
 
-	private static DebugConsole CURRENT;
+	private static Console CURRENT;
 
 	private Stage stage;
 	private SimpleDateFormat dateFormat;
@@ -41,10 +39,7 @@ public class DebugConsole {
 	private LinkedList<String> cmdHist;
 	private int histIndex = 0;
 
-	private int autoClear = 250;
-	private int lines = 0;
-
-	public DebugConsole() {
+	public Console() {
 		this.stage = new Stage();
 		if (CURRENT != null) {
 			CURRENT.stage.close();
@@ -73,7 +68,7 @@ public class DebugConsole {
 			public void handle(KeyEvent ke) {
 				if (ke.getCode() == KeyCode.ENTER) {
 					if (commandField.getText() != null && !commandField.getText().isEmpty())
-						DebugConsole.getConsole().handle(createCmd(commandField.getText()),
+						Console.getConsole().handle(createCmd(commandField.getText()),
 								createArgs(commandField.getText()), commandField.getText());
 					cmdHist.add(commandField.getText());
 					commandField.setText("");
@@ -154,19 +149,16 @@ public class DebugConsole {
 		scrollPane.setFitToWidth(true);
 
 		stage.setScene(scene);
-		stage.setTitle("Debug Console");
+		stage.setTitle("Prometheus");
 
-		dateFormat = new SimpleDateFormat("[yyyy-M-d HH:mm:ss] ");
+		dateFormat = new SimpleDateFormat("[HH:mm:ss] ");
 		commandField.requestFocus();
 	}
 
 	public void write(String message) {
 		message = dateFormat.format(Calendar.getInstance().getTime()) + message;
-		if (lines >= autoClear)
-			clear(1);
 		((VBox) ((ScrollPane) ((VBox) stage.getScene().getRoot()).getChildren().get(0)).getContent()).getChildren()
 				.add(textBuilder(message));
-		lines++;
 	}
 
 	public void write(String message, Priority priority) {
@@ -175,18 +167,11 @@ public class DebugConsole {
 
 	private void write(String message, Color fontColor) {
 		message = dateFormat.format(Calendar.getInstance().getTime()) + message;
-		if (lines >= autoClear)
-			clear(1);
 		((VBox) ((ScrollPane) ((VBox) stage.getScene().getRoot()).getChildren().get(0)).getContent()).getChildren()
 				.add(textBuilder(message, null, null, 0, fontColor));
-		lines++;
 	}
 
 	public void write(Exception exception, Priority priority) {
-		// exception.printStackTrace();
-		if (lines + 3 + exception.getStackTrace().length >= autoClear)
-			clear(2 + exception.getStackTrace().length);
-
 		write("--- Beginning of Exception ---", Priority.HIGH);
 		write(exception.toString(), priority);
 		StackTraceElement[] arrayOfStackTraceElement = exception.getStackTrace();
@@ -209,24 +194,12 @@ public class DebugConsole {
 				clear();
 				return;
 			}
-		} else if (command.equalsIgnoreCase("copy")) {
-			write("", Priority.MILD);
-		} else if (command.equalsIgnoreCase("autoclear")) {
-			if (args.size() == 0) {
-				write("The autoclear is set to " + autoClear + " lines.", Priority.NORMAL);
-				return;
-			} else {
-				if (ObjectUtils.isShort(args.get(0))) {
-					autoClear = Short.parseShort(args.get(0));
-					write("Set the autoclear to " + autoClear + ".");
-					return;
-				} else {
-					write("Cannot set the autoClear without a number!", Priority.MILD);
-					return;
-				}
-			}
 		} else if (command.equalsIgnoreCase("testex")) {
 			write(new NullPointerException(), Priority.HIGH);
+			return;
+		} else if (command.equalsIgnoreCase("launch")) {
+			write("Initiating Prometheus...", Priority.NORMAL);
+			Initiator.registerFunctions();
 			return;
 		}
 		write(wholeCmd, Priority.LOW);
@@ -269,17 +242,11 @@ public class DebugConsole {
 		return items;
 	}
 
-	private void clear(int num) {
-		lines -= num;
-		((VBox) ((ScrollPane) ((VBox) stage.getScene().getRoot()).getChildren().get(0)).getContent()).getChildren()
-				.remove(0, num);
-	}
-
 	public void close() {
 		stage.close();
 	}
 
-	public static DebugConsole getConsole() {
+	public static Console getConsole() {
 		return CURRENT;
 	}
 
