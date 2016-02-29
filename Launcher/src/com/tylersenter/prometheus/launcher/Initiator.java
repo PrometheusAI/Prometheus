@@ -25,11 +25,11 @@ public class Initiator {
 		String line;
 		while (reader.hasNext()) {
 			line = reader.nextLine();
-			LauncherMain.writeToConsole("Function registered: " + line);
+			LauncherMain.writeToConsole("\tFunction registered: " + line);
 			try {
 				Function.registerFunction(Class.forName(line));
 			} catch (ClassNotFoundException e) {
-				LauncherMain.writeToConsole("Function class not found: " + line, Priority.MEDIUM);
+				LauncherMain.writeToConsole("\tFunction class not found: " + line, Priority.HIGH);
 			}
 		}
 

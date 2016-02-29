@@ -1,4 +1,4 @@
-package com.qlp.functions.predef;
+package com.qlp.functions.predef.math;
 
 import java.util.Map;
 
@@ -6,34 +6,33 @@ import com.qlp.QueryResponse;
 import com.qlp.functions.Function;
 
 /**
- * Finds the logarithm (base <em>e</em>) of a number
+ * Finds the logarithm (base one number) of a number
  * 
  * @author Tyler Senter
  * @version 1.0
  * @since 1.0
  */
-public class NaturalLogarithm extends Function<Number> {
+public class Logarithm extends Function<Number> {
 
 	public String getName() {
-		return "ln";
+		return "log";
 	}
 
 	public QueryResponse<Number> compute(Map<String, Object> params) {
-		return new QueryResponse<Number>(Math.log((double) params.get("param1")));
+		return new QueryResponse<Number>(
+				Math.log10((double) params.get("param1")) / Math.log10((double) params.get("base")));
 	}
 
 	public int getParameterCount() {
-		return 1;
+		return 2;
 	}
 
 	public String getKeyword() {
-		return "ln";
+		return "log";
 	}
 
 	public String toString() {
-		return "ln(param1)";
+		return "log(base,param1)";
 	}
 
-	
-	
 }

@@ -1,4 +1,4 @@
-package com.qlp.functions.predef;
+package com.qlp.functions.predef.math;
 
 import java.util.Map;
 
@@ -6,21 +6,20 @@ import com.qlp.QueryResponse;
 import com.qlp.functions.Function;
 
 /**
- * Determines whether or not a variable is defined
+ * Finds the logarithm (base <em>e</em>) of a number
  * 
  * @author Tyler Senter
  * @version 1.0
  * @since 1.0
  */
-public class VariableDefined extends Function<Number> {
+public class NaturalLogarithm extends Function<Number> {
 
 	public String getName() {
-		return "isdef";
+		return "ln";
 	}
 
 	public QueryResponse<Number> compute(Map<String, Object> params) {
-		return new QueryResponse<Number>(
-				((VariableDefinition) Function.getFunction("vardef")).vars.containsKey(params.get("name")) ? 1 : 0);
+		return new QueryResponse<Number>(Math.log((double) params.get("param1")));
 	}
 
 	public int getParameterCount() {
@@ -28,11 +27,13 @@ public class VariableDefined extends Function<Number> {
 	}
 
 	public String getKeyword() {
-		return "";
+		return "ln";
 	}
 
 	public String toString() {
-		return "isdef(name)";
+		return "ln(param1)";
 	}
 
+	
+	
 }

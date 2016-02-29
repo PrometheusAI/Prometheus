@@ -1,4 +1,4 @@
-package com.qlp.functions.predef;
+package com.qlp.functions.predef.math;
 
 import java.util.Map;
 

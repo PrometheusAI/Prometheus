@@ -1,4 +1,4 @@
-package com.qlp.functions.predef;
+package com.qlp.functions.predef.math;
 
 import java.util.Map;
 
@@ -6,20 +6,20 @@ import com.qlp.QueryResponse;
 import com.qlp.functions.Function;
 
 /**
- * Finds the remainder when one number is divided by another
+ * Finds the sum of two numbers
  * 
  * @author Tyler Senter
  * @version 1.0
  * @since 1.0
  */
-public class Modulation extends Function<Number> {
+public class Addition extends Function<Number> {
 
 	public String getName() {
-		return "mod";
+		return "add";
 	}
 
 	public QueryResponse<Number> compute(Map<String, Object> params) {
-		return new QueryResponse<>((double) params.get("param1") % (double) params.get("param2"));
+		return new QueryResponse<Number>((double) params.get("param1") + (double) params.get("param2"));
 	}
 
 	public int getParameterCount() {
@@ -27,11 +27,11 @@ public class Modulation extends Function<Number> {
 	}
 
 	public String toString() {
-		return "mod(param1,param2)";
+		return "add(param1,param2)";
 	}
 
 	public String getKeyword() {
-		return "remainder";
+		return "plus";
 	}
 
 }

@@ -39,6 +39,8 @@ public class Console {
 	private LinkedList<String> cmdHist;
 	private int histIndex = 0;
 
+	private boolean timestamps = false;
+
 	public Console() {
 		this.stage = new Stage();
 		if (CURRENT != null) {
@@ -156,7 +158,8 @@ public class Console {
 	}
 
 	public void write(String message) {
-		message = dateFormat.format(Calendar.getInstance().getTime()) + message;
+		if (timestamps)
+			message = dateFormat.format(Calendar.getInstance().getTime()) + message;
 		((VBox) ((ScrollPane) ((VBox) stage.getScene().getRoot()).getChildren().get(0)).getContent()).getChildren()
 				.add(textBuilder(message));
 	}
@@ -166,7 +169,8 @@ public class Console {
 	}
 
 	private void write(String message, Color fontColor) {
-		message = dateFormat.format(Calendar.getInstance().getTime()) + message;
+		if (timestamps)
+			message = dateFormat.format(Calendar.getInstance().getTime()) + message;
 		((VBox) ((ScrollPane) ((VBox) stage.getScene().getRoot()).getChildren().get(0)).getContent()).getChildren()
 				.add(textBuilder(message, null, null, 0, fontColor));
 	}
@@ -201,6 +205,22 @@ public class Console {
 			write("Initiating Prometheus...", Priority.NORMAL);
 			Initiator.registerFunctions();
 			return;
+		} else if (command.equalsIgnoreCase("timestamps")) {
+			if (args.size() == 1) {
+				String message = "";
+				switch (args.get(0).toLowerCase()) {
+				case "on":
+					timestamps = true;
+					message = "Timestamps have been enabled.";
+					break;
+				case "off":
+					timestamps = false;
+					message = "Timestamps have been disabled.";
+					break;
+				}
+				write(message);
+				return;
+			}
 		}
 		write(wholeCmd, Priority.LOW);
 		write("Invalid command! Please check your spelling before continuing!", Priority.HIGH);
