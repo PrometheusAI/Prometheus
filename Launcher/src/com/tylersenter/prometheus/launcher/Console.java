@@ -221,6 +221,9 @@ public class Console {
 				write(message);
 				return;
 			}
+		} else if (command.equalsIgnoreCase("help")) {
+			constructMenu();
+			return;
 		}
 		write(wholeCmd, Priority.LOW);
 		write("Invalid command! Please check your spelling before continuing!", Priority.HIGH);
@@ -264,6 +267,10 @@ public class Console {
 
 	public void close() {
 		stage.close();
+	}
+	
+	public void constructMenu() {
+		
 	}
 
 	public static Console getConsole() {
