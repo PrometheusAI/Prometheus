@@ -16,8 +16,9 @@ public class Driver {
 	 * 		
 	 * 		Question: 		"What is six cubed divided by 4?"		
 	 * 		Interpreter: 	"math:six cubed divided by 4"
+	 *      Interpreter:    "math:6 cubed divided by 4"
 	 * 		MathHandler:    Six cubed divided by 4 is 54.
-	 * 
+	 *      
 	 * 
 	 * 		
 	 * 		
