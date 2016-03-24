@@ -37,7 +37,7 @@ public class Driver {
 
 		reader.close();
 
-		String[] functions = new String[] { "add(2,2)" };
+		String[] functions = new String[] { "sub(mult(add(sub(8,1),3),6),mult(add(3,7),2)" };
 
 		for (String str : functions)
 			System.out.println(NumberFormat.getNumberInstance().format(MathHandler.computeAllFunctions(str)));
