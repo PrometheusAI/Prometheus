@@ -5,6 +5,13 @@ import java.util.Map;
 
 import com.qlp.QueryResponse;
 
+/**
+ * Defines the basic implementations a {@link Function} must provide
+ * 
+ * @author Tyler Senter
+ * @version 1.0
+ * @since 1.0
+ */
 public abstract class Function<T> {
 
 	private static final Map<String, Function<?>> functions = new HashMap<>();
